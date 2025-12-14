@@ -16,15 +16,11 @@ body {
   flex: 1;
 }
 
-.square-container {
-  display: flex;
-}
-
 .square {
   border-style: solid;
   border-color: black;
   border-width: 1px;
-  background-color: grey;
+  background-color: black;
 }
 
 .square:hover {
