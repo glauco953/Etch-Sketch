@@ -1,25 +1,38 @@
 const gridSize = 16;
+const squareWidthPercentage = 100 / gridSize;
 
-let rows = [];
-let items = new Array();
+let squares = [];
+const root = document.body;
 const sandbox = document.createElement("div");
 sandbox.classList.add("sandbox");
 
-const generateRowItems = function (rowIndex) {
-  for (let columnIndex = 0; columnIndex < gridSize; columnIndex++) {
-    items[rowIndex][columnIndex] = document.createElement("div");
-    items[rowIndex][columnIndex].classList.add("square");
-    rows[rowIndex].appendChild(items[rowIndex][columnIndex]);
-  }
+const controlPanel = document.createElement("div");
+controlPanel.classList.add("panel");
+
+const cPanelTitle = document.createElement("h2");
+cPanelTitle.textContent = "Select the grid width: ";
+controlPanel.appendChild(cPanelTitle);
+
+const gridLengthInput = document.createElement("input");
+gridLengthInput.setAttribute("type", "number");
+controlPanel.appendChild(gridLengthInput);
+
+const refreshButton = document.createElement("button");
+refreshButton.textContent = "Clear";
+controlPanel.appendChild(refreshButton);
+
+const activateSquare = function (e) {
+  e.target.classList.add("active");
 };
 
-for (let rowIndex = 0; rowIndex < gridSize; rowIndex++) {
-  rows[rowIndex] = document.createElement("div");
-  rows[rowIndex].classList.add("row");
-  items[rowIndex] = [];
-  generateRowItems(rowIndex);
-  sandbox.appendChild(rows[rowIndex]);
+for (let i = 0; i < gridSize * gridSize; i++) {
+  const square = document.createElement("div");
+  square.classList.add("square");
+  square.setAttribute("id", i);
+  square.style.width = squareWidthPercentage + "%";
+  square.addEventListener("mouseenter", activateSquare);
+  sandbox.appendChild(square);
 }
 
-const root = document.body;
+root.appendChild(controlPanel);
 root.appendChild(sandbox);

@@ -1,28 +1,29 @@
-body {
-  display: flex;
-  flex-direction: column;
-}
-
 .sandbox {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   width: 640px;
   height: 640px;
-}
-
-.row {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex: 1;
+  padding: 0px;
+  margin: 0px;
 }
 
 .square {
   border-style: solid;
   border-color: black;
   border-width: 1px;
-  background-color: black;
+  background-color: blue;
+  flex-grow: 1;
+  box-sizing: border-box;
 }
 
-.square:hover {
+.square:hover,
+.active {
   background-color: green;
+}
+
+.cPanel {
+  background-color: coral;
+  box-shadow: 2px 2px 4px 4px blue;
+  display: flex;
 }
