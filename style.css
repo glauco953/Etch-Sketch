@@ -5,7 +5,7 @@
   width: 640px;
   height: 640px;
   padding: 0px;
-  margin: 0px;
+  margin: auto;
 }
 
 .square {
@@ -15,6 +15,7 @@
   background-color: blue;
   flex-grow: 1;
   box-sizing: border-box;
+  aspect-ratio: 1;
 }
 
 .square:hover,
@@ -22,8 +23,13 @@
   background-color: green;
 }
 
-.cPanel {
+.panel {
   background-color: coral;
   box-shadow: 2px 2px 4px 4px blue;
   display: flex;
+  width: 420px;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 50px;
+  margin: auto;
 }
